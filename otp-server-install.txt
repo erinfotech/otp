@@ -1,0 +1,27 @@
+apt-get update
+apt install sudo
+apt install sudo-ldap -y
+
+adduser otp
+usermod -aG sudo otp
+su otp
+cd
+
+sudo curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+
+sudo apt-get install nodejs -y
+sudo apt install build-essential -y
+sudo npm install pm2@latest -g
+
+mkdir password-generator
+cd password-generator
+
+# place our project in it.
+
+npm install
+
+sudo pm2 start server.js
+sudo pm2 startup
+
+sudo pm2 save
+sudo pm2 restart server

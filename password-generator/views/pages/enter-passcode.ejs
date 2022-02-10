@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Enter Passcode</title>
+    <%- include('../partials/head'); %>
+  </head>
+
+  <body>
+    <header><%- include('../partials/header'); %></header>
+    <main>
+      <div class="container" id="container">
+        <div class="overlay-container">
+          <div class="overlay">
+            <div class="overlay-panel overlay-right">
+              <h1>Need free OTP?</h1>
+              <p>
+                Visit our website from mobile or web browser and grab a free
+                OTP. Enter here and watch freely without any other restrictions
+              </p>
+              <p style="margin-top: 25px">https://google.com</p>
+            </div>
+          </div>
+        </div>
+        <div name="form1" class="form-container sign-in-container">
+          <form method="POST" action="/submit-passcode">
+            <h1>Hola!</h1>
+            <span style="margin: 10px">Enter OTP and watch freee</span>
+            <input
+              id="passcode"
+              name="passcode"
+              type="number"
+              placeholder="OTP"
+              required
+            />
+            <input type="hidden" name="redirectUrl" id="redirectUrl" value="<%= redirectUrl %>">
+            <input type="hidden" name="other" id="other" value="<%= other %>">
+            <span style='color: green'><%= success %></span>
+            <span style='color: red'><%= error %></span>
+            <span style="margin: 10px">Pass valid for 5 hours</span>
+            <button id="btnSubmit" type="submit">Sign In</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer><%- include('../partials/footer'); %></footer>
+  </body>
+</html>
